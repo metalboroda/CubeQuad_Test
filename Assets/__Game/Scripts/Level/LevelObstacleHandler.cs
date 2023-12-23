@@ -11,6 +11,8 @@ namespace CubeQuad
     [Header("")]
     [SerializeField] private int _maxObstacles = 5;
 
+    private HashSet<int> spawnedObstacleIndices = new();
+
     private void Start()
     {
       GenerateRandomObstacles();
@@ -20,13 +22,22 @@ namespace CubeQuad
     {
       int obstaclesToGenerate = Mathf.Min(_maxObstacles, _obstaclePoints.Count);
 
-      List<ObstaclePoint> shuffledPoints = new List<ObstaclePoint>(_obstaclePoints);
+      List<ObstaclePoint> shuffledPoints = new(_obstaclePoints);
 
       shuffledPoints.Shuffle();
 
+      spawnedObstacleIndices.Clear();
+
       for (int i = 0; i < obstaclesToGenerate; i++)
       {
-        GameObject obstaclePrefab = _obstacles[Random.Range(0, _obstacles.Count)];
+        int randomObstacleIndex;
+
+        do
+        {
+          randomObstacleIndex = Random.Range(0, _obstacles.Count);
+        } while (spawnedObstacleIndices.Contains(randomObstacleIndex));
+
+        GameObject obstaclePrefab = _obstacles[randomObstacleIndex];
         Transform obstaclePoint = shuffledPoints[i].transform;
 
         if (!shuffledPoints[i].Occupied)
@@ -34,6 +45,7 @@ namespace CubeQuad
           Instantiate(obstaclePrefab, obstaclePoint.position, obstaclePoint.rotation);
 
           shuffledPoints[i].Occupied = true;
+          spawnedObstacleIndices.Add(randomObstacleIndex);
         }
         else
         {

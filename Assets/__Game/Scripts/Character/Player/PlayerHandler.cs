@@ -23,6 +23,7 @@ namespace CubeQuad
         _capsuleCollider.enabled = false;
 
         _playerController.StateMachine.ChangeState(new PlayerDeathState(_playerController));
+        _playerController.GameController.ChangeState(GameStateEnum.Lose);
       }
     }
   }

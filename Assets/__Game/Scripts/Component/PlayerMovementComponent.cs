@@ -37,7 +37,7 @@ namespace CubeQuad
         }
         else
         {
-          _rotTween = rotateTarget.DOLocalRotate(new Vector3(0, moveX * 3f, 0), 0.2f);
+          _rotTween = rotateTarget.DOLocalRotate(new Vector3(0, moveX * 4f, 0), 0.2f);
         }
       }
       else if (Input.touchCount == 0)
@@ -62,7 +62,7 @@ namespace CubeQuad
       }
       else
       {
-        _rotTween = rotateTarget.DOLocalRotate(new Vector3(0, moveX * 3f, 0), 0.2f);
+        _rotTween = rotateTarget.DOLocalRotate(new Vector3(0, moveX * 4f, 0), 0.2f);
       }
     }
   }

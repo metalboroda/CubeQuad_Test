@@ -38,6 +38,7 @@ namespace CubeQuad
     private void EndReached(double obj)
     {
       _playerController.StateMachine.ChangeState(new PlayerWinState(_playerController));
+      _playerController.GameController.ChangeState(GameStateEnum.Win);
     }
   }
 }

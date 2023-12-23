@@ -15,11 +15,11 @@ namespace CubeQuad
 
     [Inject] public InputManager InputManager { get; private set; }
 
-    [Inject] private GameController _gameController;
+    [Inject] public GameController GameController { get; private set; }
 
     private void Awake()
     {
-      _gameController.StateChanged += (state) =>
+      GameController.StateChanged += (state) =>
       {
         if (state == GameStateEnum.Start)
         {
@@ -40,7 +40,7 @@ namespace CubeQuad
 
     private void OnDestroy()
     {
-      _gameController.StateChanged -= (state) => { };
+      GameController.StateChanged -= (state) => { };
     }
   }
 }
