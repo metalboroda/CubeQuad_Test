@@ -1,4 +1,3 @@
-using Dreamteck.Splines;
 using UnityEngine;
 using Zenject;
 
@@ -6,6 +5,7 @@ namespace CubeQuad
 {
   public class PlayerController : MonoBehaviour
   {
+    [field: SerializeField] public PlayerHandler PlayerHandler { get; private set; }
     [field: SerializeField] public PlayerMovement PlayerMovement { get; private set; }
     [field: SerializeField] public PlayerFollowerHandler PlayerFollowerHandler { get; private set; }
     [field: SerializeField] public CharacterAnimation CharacterAnimation { get; private set; }
@@ -41,11 +41,6 @@ namespace CubeQuad
     private void OnDestroy()
     {
       _gameController.StateChanged -= (state) => { };
-    }
-
-    private void ToWinState()
-    {
-      StateMachine.ChangeState(new PlayerWinState(this));
     }
   }
 }

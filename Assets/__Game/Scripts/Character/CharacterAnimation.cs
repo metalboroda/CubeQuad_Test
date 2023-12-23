@@ -26,5 +26,17 @@ namespace CubeQuad
     {
       _animator.CrossFadeInFixedTime(_characterAnimationSO.GetRandomDanceAnim(), _crossfade);
     }
+
+    public void DeathAnim()
+    {
+      _animator.CrossFadeInFixedTime(_characterAnimationSO.Death, _crossfade);
+    }
+
+    public float GetCurrentAnimationLength()
+    {
+      AnimatorStateInfo currentState = _animator.GetCurrentAnimatorStateInfo(0);
+
+      return currentState.length;
+    }
   }
 }

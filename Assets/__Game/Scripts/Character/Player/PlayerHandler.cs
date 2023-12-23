@@ -4,6 +4,10 @@ namespace CubeQuad
 {
   public class PlayerHandler : CharacterHandler
   {
+    [field: Header("")]
+    [field: SerializeField] public GameObject DeathVFXObj { get; private set; }
+
+    [Header("")]
     [SerializeField] private PlayerController _playerController;
 
     public override void Damage(int damage)

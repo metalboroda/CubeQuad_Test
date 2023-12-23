@@ -9,6 +9,7 @@ namespace CubeQuad
     [field: SerializeField] public string Idle { get; private set; }
     [field: SerializeField] public string Run { get; private set; }
     [field: SerializeField] public List<string> Dances { get; private set; } = new();
+    [field: SerializeField] public string Death { get; private set; }
 
     public string GetRandomDanceAnim()
     {
