@@ -177,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145696857653236884}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31622776, y: -0.000000026381628, z: 0.000000008793878, w: 0.9486833}
+  m_LocalRotation: {x: 0.31622773, y: -0.000000009819704, z: 0.0000000032732344, w: 0.9486833}
   m_LocalPosition: {x: 0.000000011160058, y: 5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -613,6 +613,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1128158818788635814, guid: 7c282146f318e9d42bf0b15bfa83e8a3,
+        type: 3}
+      propertyPath: _cameras.Array.data[0]
+      value: 
+      objectReference: {fileID: 1145696857653236884}
+    - target: {fileID: 1128158818788635814, guid: 7c282146f318e9d42bf0b15bfa83e8a3,
+        type: 3}
+      propertyPath: _cameras.Array.data[1]
+      value: 
+      objectReference: {fileID: 7874006457882872280}
+    - target: {fileID: 1128158818788635814, guid: 7c282146f318e9d42bf0b15bfa83e8a3,
+        type: 3}
+      propertyPath: <MainCamera>k__BackingField
+      value: 
+      objectReference: {fileID: 1145696857653236884}
+    - target: {fileID: 1128158818788635814, guid: 7c282146f318e9d42bf0b15bfa83e8a3,
+        type: 3}
+      propertyPath: <FrontCamera>k__BackingField
+      value: 
+      objectReference: {fileID: 7874006457882872280}
     - target: {fileID: 1669636870301538614, guid: 7c282146f318e9d42bf0b15bfa83e8a3,
         type: 3}
       propertyPath: m_Name
@@ -623,6 +643,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 3586930477052455407, guid: 7c282146f318e9d42bf0b15bfa83e8a3,
+        type: 3}
+      propertyPath: <SplineFollower>k__BackingField
+      value: 
+      objectReference: {fileID: 8698113122152980909}
     - target: {fileID: 8440133985480066508, guid: 7c282146f318e9d42bf0b15bfa83e8a3,
         type: 3}
       propertyPath: <SplineFollower>k__BackingField
