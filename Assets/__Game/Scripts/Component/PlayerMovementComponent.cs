@@ -22,12 +22,16 @@ namespace CubeQuad
         {
           DOTween.Kill(_rotTween);
 
-          rotateTarget.DOLocalRotate(Vector3.zero, 0.2f);
+          rotateTarget.DOLocalRotate(Vector3.zero, 0.1f);
         }
         else
         {
           _rotTween = rotateTarget.DOLocalRotate(new Vector3(0, moveX * 3f, 0), 0.2f);
         }
+      }
+      else if (Input.touchCount == 0)
+      {
+        rotateTarget.DOLocalRotate(Vector3.zero, 0.1f);
       }
     }
   }

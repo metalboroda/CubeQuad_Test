@@ -20,12 +20,12 @@ namespace CubeQuad
     public override void Enter()
     {
       _playerCameraHandler.SwitchCamera(_playerCameraHandler.FrontCamera);
-      _playerController.transform.DOLookAt(_playerController.transform.parent.position, 0.25f);
+      _playerController.transform.DOLookAt(_playerController.transform.parent.position, 0);
       _playerController.transform.DOMove(_playerController.transform.parent.position,
-        _playerMovement.MovementSpeed).SetSpeedBased(true).OnComplete(() =>
+        0).OnComplete(() =>
         {
           _playerController.transform.DOLookAt(
-            _playerFollowerHandler.GetEndPointPosition(), 0.25f);
+            _playerFollowerHandler.GetEndPointPosition(), 0);
           _playerController.CharacterAnimation.RandDanceAnim();
         });
     }
