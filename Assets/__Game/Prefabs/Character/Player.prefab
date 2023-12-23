@@ -149,6 +149,7 @@ MonoBehaviour:
   Health: 100
   <DeathVFXObj>k__BackingField: {fileID: 4582872828244103227, guid: d61f29030c3796c49a5fc89cc419a8b0,
     type: 3}
+  _capsuleCollider: {fileID: 4819293311538671927}
   _playerController: {fileID: 6784381339445321310}
 --- !u!114 &251777981631054289
 MonoBehaviour:

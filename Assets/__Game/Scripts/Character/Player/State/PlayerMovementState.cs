@@ -21,7 +21,7 @@ namespace CubeQuad
 
     public override void Update()
     {
-      _playerMovementComponent.TouchSideMovement(_playerMovement.SideMovementSpeed,
+      _playerMovementComponent.SideMovement(_playerMovement.SideMovementSpeed,
         _playerController.InputManager.Joystick.Horizontal, _playerMovement.MovementLimitX,
         _playerController.transform, _playerMovement.Model.transform);
     }
