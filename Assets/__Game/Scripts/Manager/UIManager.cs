@@ -11,10 +11,12 @@ namespace CubeQuad
     [Header("Start Screen")]
     [SerializeField] private GameObject _startScreen;
     [SerializeField] private Button _startBtn;
-    [SerializeField] private TextMeshProUGUI _levelCounterTxt;
+    [SerializeField] private TextMeshProUGUI _startLevelCounterTxt;
 
     [Header("Game Screen")]
     [SerializeField] private GameObject _gameScreen;
+    [SerializeField] private TextMeshProUGUI _gameLevelCounterTxt;
+    [SerializeField] private Button _gameRestartBtn;
 
     [Header("Lose Screen")]
     [SerializeField] private GameObject _loseScreen;
@@ -60,6 +62,8 @@ namespace CubeQuad
         SwitchScreen(_gameScreen);
       });
 
+      _gameRestartBtn.onClick.AddListener(() => { _sceneController.RestartLevel(); });
+
       _loseRestartBtn.onClick.AddListener(() => { _sceneController.RestartLevel(); });
 
       _winRestartBtn.onClick.AddListener(() => { _sceneController.LoadNextLevel(); });
@@ -83,7 +87,7 @@ namespace CubeQuad
 
     private IEnumerator DoLoseScreen()
     {
-      yield return new WaitForSeconds(1.5f);
+      yield return new WaitForSeconds(1);
 
       SwitchScreen(_loseScreen);
     }
@@ -98,7 +102,7 @@ namespace CubeQuad
 
     private IEnumerator DoWinScreen()
     {
-      yield return new WaitForSeconds(1.5f);
+      yield return new WaitForSeconds(0);
 
       SwitchScreen(_winScreen);
     }
@@ -120,7 +124,10 @@ namespace CubeQuad
 
     private void ShowLevelCounterTxt()
     {
-      _levelCounterTxt.SetText(
+      _startLevelCounterTxt.SetText(
+        $"LEVEL {_playerPrefsController.GetVisualLevelIndex() + 1}");
+
+      _gameLevelCounterTxt.SetText(
         $"LEVEL {_playerPrefsController.GetVisualLevelIndex() + 1}");
     }
   }
