@@ -32,10 +32,7 @@ namespace CubeQuad
       {
         int randomObstacleIndex;
 
-        do
-        {
-          randomObstacleIndex = Random.Range(0, _obstacles.Count);
-        } while (spawnedObstacleIndices.Contains(randomObstacleIndex));
+        randomObstacleIndex = Random.Range(0, _obstacles.Count);
 
         GameObject obstaclePrefab = _obstacles[randomObstacleIndex];
         Transform obstaclePoint = shuffledPoints[i].transform;
