@@ -177,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145696857653236884}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31622773, y: 6.5584876e-15, z: -4.258579e-15, w: 0.9486833}
+  m_LocalRotation: {x: 0.31622773, y: 6.5584876e-15, z: -3.3704004e-15, w: 0.9486833}
   m_LocalPosition: {x: 0.00000004618402, y: 5.0010824, z: -4.993113}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -632,12 +632,12 @@ PrefabInstance:
         type: 3}
       propertyPath: <MainCamera>k__BackingField
       value: 
-      objectReference: {fileID: 1145696857653236884}
+      objectReference: {fileID: 6125214605120916347}
     - target: {fileID: 5941785357849986883, guid: 028002b2e6550834cb495cfab6959f28,
         type: 3}
       propertyPath: <FrontCamera>k__BackingField
       value: 
-      objectReference: {fileID: 7874006457882872280}
+      objectReference: {fileID: 6612327140008756585}
     - target: {fileID: 7789580806772562442, guid: 028002b2e6550834cb495cfab6959f28,
         type: 3}
       propertyPath: <SplineFollower>k__BackingField

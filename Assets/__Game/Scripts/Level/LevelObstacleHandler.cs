@@ -39,7 +39,8 @@ namespace CubeQuad
 
         if (!shuffledPoints[i].Occupied)
         {
-          Instantiate(obstaclePrefab, obstaclePoint.position, obstaclePoint.rotation);
+          Instantiate(obstaclePrefab, obstaclePoint.position,
+            obstaclePoint.rotation, obstaclePoint.transform);
 
           shuffledPoints[i].Occupied = true;
           spawnedObstacleIndices.Add(randomObstacleIndex);

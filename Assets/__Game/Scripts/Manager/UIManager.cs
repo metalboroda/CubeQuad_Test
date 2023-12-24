@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace CubeQuad
 {
   public class UIManager : MonoBehaviour
   {
-    [SerializeField] private List<GameObject> _screens = new();
-
     [Header("Start Screen")]
     [SerializeField] private GameObject _startScreen;
     [SerializeField] private Button _startBtn;
@@ -27,11 +24,14 @@ namespace CubeQuad
 
     [Header("")]
     [SerializeField] private GameController _gameController;
-    [SerializeField] private SceneController _sceneController;
+    [SerializeField] private LevelController _sceneController;
+
+    private List<GameObject> _screens = new();
 
     private void Awake()
     {
       SubscribeButtons();
+      InitializeScreensList();
 
       _gameController.StateChanged += LoseScreen;
       _gameController.StateChanged += WinScreen;
@@ -52,9 +52,17 @@ namespace CubeQuad
         SwitchScreen(_gameScreen);
       });
 
-      _loseRestartBtn.onClick.AddListener(() => { _sceneController.RestartScene(); });
+      _loseRestartBtn.onClick.AddListener(() => { _sceneController.RestartLevel(); });
 
-      _winRestartBtn.onClick.AddListener(() => { _sceneController.RestartScene(); });
+      _winRestartBtn.onClick.AddListener(() => { _sceneController.RestartLevel(); });
+    }
+
+    private void InitializeScreensList()
+    {
+      _screens.Add(_startScreen);
+      _screens.Add(_gameScreen);
+      _screens.Add(_loseScreen);
+      _screens.Add(_winScreen);
     }
 
     private void LoseScreen(GameStateEnum gameState)

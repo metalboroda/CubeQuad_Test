@@ -19,13 +19,10 @@ namespace CubeQuad
 
     private void Awake()
     {
+      StateMachine.Init(new PlayerIdleState(this));
+
       GameController.StateChanged += (state) =>
       {
-        if (state == GameStateEnum.Start)
-        {
-          StateMachine.Init(new PlayerIdleState(this));
-        }
-
         if (state == GameStateEnum.Game)
         {
           StateMachine.ChangeState(new PlayerMovementState(this));

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,25 +6,35 @@ namespace CubeQuad
 {
   public class PlayerCameraHandler : MonoBehaviour
   {
-    [SerializeField] private List<GameObject> _cameras = new();
+    [field: SerializeField] public CinemachineVirtualCamera MainCamera { get; private set; }
+    [field: SerializeField] public CinemachineVirtualCamera FrontCamera { get; private set; }
 
-    [field: Header("")]
-    [field: SerializeField] public GameObject MainCamera { get; private set; }
-    [field: SerializeField] public GameObject FrontCamera { get; private set; }
+    private List<CinemachineVirtualCamera> _cameras = new();
 
-    public void SwitchCamera(GameObject cameraToEnable)
+    private void Awake()
+    {
+      InitializeCamerasList();
+    }
+
+    public void SwitchCamera(CinemachineVirtualCamera cameraToEnable)
     {
       foreach (var screen in _cameras)
       {
         if (screen == cameraToEnable)
         {
-          screen.SetActive(true);
+          screen.gameObject.SetActive(true);
         }
         else
         {
-          screen.SetActive(false);
+          screen.gameObject.SetActive(false);
         }
       }
+    }
+
+    private void InitializeCamerasList()
+    {
+      _cameras.Add(MainCamera);
+      _cameras.Add(FrontCamera);
     }
   }
 }
