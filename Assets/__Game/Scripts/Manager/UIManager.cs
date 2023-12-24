@@ -54,7 +54,7 @@ namespace CubeQuad
 
       _loseRestartBtn.onClick.AddListener(() => { _sceneController.RestartLevel(); });
 
-      _winRestartBtn.onClick.AddListener(() => { _sceneController.RestartLevel(); });
+      _winRestartBtn.onClick.AddListener(() => { _sceneController.LoadNextLevel(); });
     }
 
     private void InitializeScreensList()

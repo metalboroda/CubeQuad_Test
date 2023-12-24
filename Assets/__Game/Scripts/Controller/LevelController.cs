@@ -8,17 +8,35 @@ namespace CubeQuad
 {
   public class LevelController : MonoBehaviour
   {
-    [SerializeField] private string _address;
+    [SerializeField] private PlayerPrefsController _playerPrefsController;
+
+    private string _address;
+    private int _levelIndex;
+    private GameObject _spawnedLevel;
 
     [Inject] private DiContainer _spawnContainer;
 
-    private void Start()
+    private async void Start()
     {
+      _levelIndex = _playerPrefsController.GetLevelIndex();
 
+      SetAddressIndex(_levelIndex);
+
+      await LoadLevel(_address);
     }
 
     public void RestartLevel()
     {
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadNextLevel()
+    {
+      _levelIndex++;
+      _playerPrefsController.SaveLevelIndex(_levelIndex);
+
+      SetAddressIndex(_levelIndex);
+
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -30,9 +48,9 @@ namespace CubeQuad
       if (loadOperation.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
       {
         GameObject prefab = loadOperation.Result;
-        GameObject instance = _spawnContainer.InstantiatePrefab(prefab);
+        _spawnedLevel = _spawnContainer.InstantiatePrefab(prefab);
 
-        return instance;
+        return _spawnedLevel;
       }
       else
       {
@@ -40,6 +58,11 @@ namespace CubeQuad
 
         return null;
       }
+    }
+
+    private void SetAddressIndex(int index)
+    {
+      _address = $"Assets/__Game/Prefabs/Level/Level_{index}.prefab";
     }
   }
 }
