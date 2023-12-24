@@ -148,12 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles:
-  - {fileID: 1785094547436569263, guid: a54cd7bbb53673a42b1b1aabe6a68420, type: 3}
-  - {fileID: 4300138634072518641, guid: beaaede5bc9031843b6d7a8bad085939, type: 3}
-  - {fileID: 4136006709949362435, guid: 2336fd77588722648a201fefe5cf9989, type: 3}
-  - {fileID: 5019504819456453020, guid: 3604c73938648a14ea7fdcdeb91f6881, type: 3}
-  - {fileID: 2063407124715246599, guid: f9c01ec2e0cc289408164ec065d5ac82, type: 3}
-  - {fileID: 479006840090935486, guid: d4790a87d7489294ea97774c7a3a1382, type: 3}
   - {fileID: 6265472541638787466, guid: e62d92e6752ac424383586b6da54cdd3, type: 3}
   - {fileID: 159900992972807223, guid: ff66257558a917c46a2cbbeeba300640, type: 3}
   - {fileID: 7959923166778452176, guid: 8bf2af23c8b91984d940c5a6e9cc0281, type: 3}
@@ -1469,7 +1463,7 @@ PrefabInstance:
     - target: {fileID: 6878385221443777944, guid: 0a3c256210a6d1247a28a8565f5af393,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.258579e-15
+      value: -3.3704004e-15
       objectReference: {fileID: 0}
     - target: {fileID: 7675665042984861799, guid: 0a3c256210a6d1247a28a8565f5af393,
         type: 3}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ namespace CubeQuad
     [Header("Start Screen")]
     [SerializeField] private GameObject _startScreen;
     [SerializeField] private Button _startBtn;
+    [SerializeField] private TextMeshProUGUI _levelCounterTxt;
 
     [Header("Game Screen")]
     [SerializeField] private GameObject _gameScreen;
@@ -25,6 +27,7 @@ namespace CubeQuad
     [Header("")]
     [SerializeField] private GameController _gameController;
     [SerializeField] private LevelController _sceneController;
+    [SerializeField] private PlayerPrefsController _playerPrefsController;
 
     private List<GameObject> _screens = new();
 
@@ -35,6 +38,11 @@ namespace CubeQuad
 
       _gameController.StateChanged += LoseScreen;
       _gameController.StateChanged += WinScreen;
+    }
+
+    private void Start()
+    {
+      ShowLevelCounterTxt();
     }
 
     private void OnDestroy()
@@ -108,6 +116,12 @@ namespace CubeQuad
           screen.SetActive(false);
         }
       }
+    }
+
+    private void ShowLevelCounterTxt()
+    {
+      _levelCounterTxt.SetText(
+        $"LEVEL {_playerPrefsController.GetVisualLevelIndex() + 1}");
     }
   }
 }

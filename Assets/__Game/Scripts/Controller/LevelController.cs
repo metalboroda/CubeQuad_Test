@@ -45,6 +45,11 @@ namespace CubeQuad
 
     public void LoadNextLevel()
     {
+      int visualIndex = _playerPrefsController.GetVisualLevelIndex();
+
+      visualIndex++;
+      _playerPrefsController.SaveVisualLevelIndex(visualIndex);
+
       if (_playerPrefsController.GetIsRandomLevel() == 0)
       {
         _levelIndex++;

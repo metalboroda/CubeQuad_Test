@@ -34,6 +34,16 @@ namespace CubeQuad
     {
       PlayerPrefs.SetInt("IsRandomLevel", value);
     }
+
+    public int GetVisualLevelIndex()
+    {
+      return PlayerPrefs.GetInt("VisualLevelIndex");
+    }
+
+    public void SaveVisualLevelIndex(int index)
+    {
+      PlayerPrefs.SetInt("VisualLevelIndex", index);
+    }
     #endregion
   }
 }
